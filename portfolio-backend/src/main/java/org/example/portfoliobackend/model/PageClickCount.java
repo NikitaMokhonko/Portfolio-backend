@@ -1,13 +1,12 @@
-package model;
-
+package org.example.portfoliobackend.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "page_click_count")
 public class PageClickCount {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,31 +20,21 @@ public class PageClickCount {
     @Column
     private LocalDateTime lastClickedAt = LocalDateTime.now();
 
-    public PageClickCount() {
-    }
+    public PageClickCount() {}
+
     public PageClickCount(String pageName, long clickCount, LocalDateTime lastClickedAt) {
         this.pageName = pageName;
         this.clickCount = clickCount;
+        this.lastClickedAt = lastClickedAt;
     }
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getPageName() {
-        return pageName;
-    }
-    public void setPageName(String pageName) {}
-    public long getClickCount() {
-        return clickCount;
-    }
-    public void setClickCount(long clickCount) {
-        this.clickCount = clickCount;
-    }
-    public LocalDateTime getLastClickedAt() {
-        return lastClickedAt;
-    }
-    public void setLastClickedAt(LocalDateTime lastClickedAt) {}
 
+    public Long getId() { return id; }
+    public String getPageName() { return pageName; }
+    public long getClickCount() { return clickCount; }
+    public LocalDateTime getLastClickedAt() { return lastClickedAt; }
+
+    public void setId(Long id) { this.id = id; }
+    public void setPageName(String pageName) { this.pageName = pageName; }
+    public void setClickCount(long clickCount) { this.clickCount = clickCount; }
+    public void setLastClickedAt(LocalDateTime lastClickedAt) { this.lastClickedAt = lastClickedAt; }
 }
